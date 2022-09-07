@@ -27,11 +27,13 @@ void split(Node*& in, Node*& odds, Node*& evens) {
   // Check if the value is even or odd igggggg
   if (in->value % 2 == 0) {
     // even so we add into the even list
+    evens = in;
     evens->value = in->value;
     evens->next = nullptr;
     split(in->next, odds, evens->next);
   }
   else {
+    odds = in;
     odds->value = in->value;
     odds->next = nullptr;
     split(in->next, odds->next, evens);
